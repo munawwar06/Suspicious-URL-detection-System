@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard AI</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="logo-text">PhishGuard AI</div>
+                    <div class="logo-sub">Threat Detection System</div>
+                </div>
+            </div>
+            <div class="header-badge">v2.0 ACTIVE</div>
+        </header>
+
+        <nav class="nav">
+            <button class="nav-btn active" onclick="showTab('scanner', this)">⬡ Scanner</button>
+            <button class="nav-btn" onclick="showTab('history', this)">◷ History</button>
+            <button class="nav-btn" onclick="showTab('analytics', this)">◈ Analytics</button>
+            <button class="nav-btn" onclick="showTab('tips', this)">◉ Awareness</button>
+        </nav>
+
+        <!-- Tab: Scanner -->
+        <main id="tab-scanner">
+            <div class="scanner-card">
+                <div class="scanner-title">URL Threat Scanner</div>
+                <div class="url-input-wrap">
+                    <input class="url-input" id="url-input" type="text" placeholder="Enter URL to analyze (e.g. https://example.com)" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')doScan()">
+                    <button class="scan-btn" id="scan-btn" onclick="doScan()">▶ SCAN</button>
+                </div>
+                <div class="quick-samples">
+                    <span class="quick-samples-label">Try:</span>
+                    <button class="sample-chip" onclick="loadSample('https://secure-bank1ogin.verify-account.com/reset')">Phishing URL</button>
+                    <button class="sample-chip" onclick="loadSample('http://free-prize-winner.tk/claim?id=83921')">Scam URL</button>
+                    <button class="sample-chip" onclick="loadSample('https://github.com/anthropics/anthropic-sdk')">Safe URL</button>
+                    <button class="sample-chip" onclick="loadSample('https://bit.ly/3xR9aBC')">Shortened URL</button>
+                </div>
+            </div>
+            <div id="result-area"></div>
+        </main>
+
+        <!-- Tab: History -->
+        <section id="tab-history" style="display:none">
+            <div id="history-content"></div>
+        </section>
+
+        <!-- Tab: Analytics -->
+        <section id="tab-analytics" style="display:none">
+            <div id="analytics-content"></div>
+        </section>
+
+        <!-- Tab: Awareness Tips -->
+        <section id="tab-tips" style="display:none">
+            <div class="section-head">Cybersecurity Awareness</div>
+            <div class="tips-grid">
+                <div class="tip-card"><div class="tip-icon">🔒</div><div class="tip-title">Always check HTTPS</div><div class="tip-text">Legitimate sites use HTTPS. If you see HTTP (no 'S'), your data is unencrypted.</div></div>
+                <div class="tip-card"><div class="tip-icon">🔍</div><div class="tip-title">Verify the domain carefully</div><div class="tip-text">Attackers use lookalike domains like "paypa1.com". Always double-check spelling.</div></div>
+                <div class="tip-card"><div class="tip-icon">⚡</div><div class="tip-title">Beware of urgency tactics</div><div class="tip-text">Phishing sites create false urgency. Legitimate orgs don't pressure you to act immediately.</div></div>
+                <div class="tip-card"><div class="tip-icon">🔗</div><div class="tip-title">Avoid URL shorteners</div><div class="tip-text">Short URLs hide the real destination. Use tools to expand and check them first.</div></div>
+                <div class="tip-card"><div class="tip-icon">🎣</div><div class="tip-title">Spot phishing keywords</div><div class="tip-text">URLs with "login" or "verify" in unusual domains are red flags.</div></div>
+                <div class="tip-card"><div class="tip-icon">📧</div><div class="tip-title">Email link safety</div><div class="tip-text">Never click links in suspicious emails. Navigate to official websites manually.</div></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JS Link -->
+    <script src="script.js"></script>
+</body>
+</html>
